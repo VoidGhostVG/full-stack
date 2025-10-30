@@ -1,5 +1,8 @@
 times:
 
 - Corinthians
-- Flamengo
-- Grêmio
+- São Paulo
+- Palmeiras
+- Santos
+- Bragantino
+- Mirassol
