@@ -1,0 +1,36 @@
+body {
+    background: black
+}
+
+.container {
+    background: #fff;
+    /* Largura da tela */
+    max-width: 400px;
+    /* Centralizar */
+    margin: 0 auto;
+    border-radius: 30px;
+    /* Espaçamento dentro do elemento */
+    padding: 1px;
+    text-align: center;
+}
+
+.container h1 {
+    color: darkred;
+    /* Espaçamento dentro do elemento */
+    padding: 15px;
+    /* Tamanho de texto */
+    font-size: 40px;
+}
+
+.tarefa {
+    border: 2px solid gray;
+    padding: 15px;
+    border-radius: 5px;
+    outline: none;
+    color: red;
+}
+
+.tarefa::placeholder {
+    color: gray;
+
+}
