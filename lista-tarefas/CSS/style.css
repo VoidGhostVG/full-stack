@@ -1,5 +1,6 @@
 body {
-    background: black
+    background: url('../img/fundo.jpeg') no-repeat;
+    background-size: cover;
 }
 
 .container {
@@ -22,7 +23,7 @@ body {
     font-size: 40px;
 }
 
-.tarefa {
+#tarefa {
     border: 2px solid gray;
     padding: 15px;
     border-radius: 5px;
@@ -30,7 +31,14 @@ body {
     color: red;
 }
 
-.tarefa::placeholder {
+#tarefa::placeholder {
     color: gray;
 
+}
+
+.botao {
+    background: rgb(243, 99, 99)
+    padding-box 0px;
+    border: 0;
+    border-radius: 8px;
 }
