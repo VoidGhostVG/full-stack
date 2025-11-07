@@ -1,0 +1,52 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+}
+
+body {
+    background: black;
+}
+
+.container {
+    background: #fff;
+    max-width: 10000px;
+    margin: 0 auto;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.container h1 {
+    padding: 0;
+    color: rgb(197, 58, 58);
+    background: rgba(0, 0, 0, 0.795);
+    width: 500px;
+    border-radius: 50px;
+    font-size: 30px;
+}
+
+.container h2 {
+    padding: 0;
+    color: rgb(197, 58, 58);
+    background: rgba(0, 0, 0, 0.795);
+    width: 300px;
+    border-radius: 50px;
+    font-size: 30px;
+}
+
+.links a {
+    padding: 20px;
+    display: block;
+    text-decoration: none;
+    font-size: 22px;
+    color:rgb(0, 0, 255);
+}
+
+.links a:hover {
+    text-decoration: underline;
+    color: darkred;
+}
+
+.texto {
+    font-size: 25px;
+}
