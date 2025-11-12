@@ -6,8 +6,8 @@ function adicionar() {
     let item = document.createElement("li");
     item.textContent = tarefas.value;
 
-    lista.appendChild("item");
+    lista.appendChild(item);
 
 
-    tarefas.value = ""
+    tarefas.value = "";
 }
