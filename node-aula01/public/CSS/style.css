@@ -1,0 +1,21 @@
+body {
+    background: black;
+    padding: 30px;
+}
+
+.titulo {
+    color: #fff;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 30px;
+    text-align: center;
+}
+
+.imagem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 0 auto;
+    border-radius: 30px;
+}
