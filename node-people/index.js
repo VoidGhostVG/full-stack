@@ -11,8 +11,18 @@ const nomes = [
   { id: 5, nome: "Doris", idade: "33" },
 ];
 
+// função auxiliar
+// retornar o Id
+function buscarNomePorId(id) {
+return nomes.filter((nome) => nome.id == id)
+}
+
 app.listen(PORT, () => {
     console.log ("Servidor rodando no endereço http://localhost:${PORT}")
+})
+
+app.get("/", (req, res) => {
+    res.send("Bem-vindo à página principal!")
 })
 
 app.get("/teste", (req, res) => {
@@ -21,4 +31,10 @@ app.get("/teste", (req, res) => {
 
     app.get("/nomes", (req, res) => {
         res.send(nomes)
+    })
+
+    // buscando Id
+    app.get("/nomes/:id", (req, res) =>{
+        let index = req.params.id
+        res.json(buscarNomePorId)(index)
     })
