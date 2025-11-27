@@ -17,6 +17,11 @@ function buscarNomePorId(id) {
 return nomes.filter((nome) => nome.id == id)
 }
 
+// pegar a posição do elemento do array por id
+function buscarIdNomes(id) {
+    return nomes.findIndex((nome) => nome.id == id)
+}
+
 app.listen(PORT, () => {
     console.log ("Servidor rodando no endereço http://localhost:${PORT}")
 })
@@ -36,5 +41,18 @@ app.get("/teste", (req, res) => {
     // buscando Id
     app.get("/nomes/:id", (req, res) =>{
         let index = req.params.id
-        res.json(buscarNomePorId)(index)
+        res.json(buscarNomePorId(index))
+    })
+
+    // criando rota para excluir
+    app.delete("/nomes/:id", (req, res) => {
+        let index = buscarIdNomes(req.params.id)
+        nomes.splice(index, 3)
+        res.send("Nomes com id ${req.params.id} excluídos com sucesso!")
+    })
+
+    // criando rota para cadastrar
+    app.post("/nomesadd", (req, res) => {
+        nomes.push(req.body)
+        res.status(201).send("Nome cadastrado com sucesso")
     })
