@@ -2,6 +2,9 @@ const express = require("express")
 const app = express()
 const PORT = 3000
 
+// indicar para express ler body com json
+app.use(express.json())
+
 // mock
 const nomes = [
   { id: 1, nome: "Fernanda", idade: "18" },
@@ -47,12 +50,12 @@ app.get("/teste", (req, res) => {
     // criando rota para excluir
     app.delete("/nomes/:id", (req, res) => {
         let index = buscarIdNomes(req.params.id)
-        nomes.splice(index, 3)
+        nomes.splice(index, 1)
         res.send("Nomes com id ${req.params.id} excluídos com sucesso!")
     })
 
     // criando rota para cadastrar
-    app.post("/nomesadd", (req, res) => {
+    app.post("/nomes", (req, res) => {
         nomes.push(req.body)
         res.status(201).send("Nome cadastrado com sucesso")
     })
