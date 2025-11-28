@@ -68,14 +68,20 @@ app.get("/teste", (req, res) => {
     // criando rota para excluir
     app.delete("/nomes/:id", (req, res) => {
         let index = buscarIdNomes(req.params.id)
+
+        if(index === -1) {
+            return res.status(404).send('Nome não encontrado!')
+        }
+
         nomes.splice(index, 1)
-        res.send("Nomes com id ${req.params.id} excluídos com sucesso!")
+
+        res.send('Nomes com id ${req.params.id} excluídos com sucesso!')
     })
 
     // criando rota para cadastrar
     app.post("/nomes", (req, res) => {
         nomes.push(req.body)
-        res.status(201).send("Nome cadastrado com sucesso")
+        res.status(201).send('Nome cadastrado com sucesso')
     })
 
     app.get("/times", (req, res) => {
@@ -89,11 +95,17 @@ app.get("/teste", (req, res) => {
 
     app.delete("/times/:id", (req, res) => {
         let index = buscarIdTimes(req.params.id)
+
+        if(index === -1) {
+            return res.status(404).send('Time não encontrado!')
+        }
+
         times.splice(index, 1)
-        res.send("Time(s) com id ${req.params.id} excluído(s) com sucesso!")
+
+        res.send('Time(s) com id ${req.params.id} excluído(s) com sucesso!')
     })
 
     app.post("/times", (req, res) => {
         times.push(req.body)
-        res.status(201).send("Seus times foram cadastrados!")
+        res.status(201).send('Seus times foram cadastrados!')
     })
