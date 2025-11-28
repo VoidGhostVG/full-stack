@@ -84,6 +84,15 @@ app.get("/teste", (req, res) => {
         res.status(201).send('Nome cadastrado com sucesso')
     })
 
+    // criando rota para alterar itens
+    app.put("/nomes/:id",(req,res) => {
+        let index = buscarIdNomes(req.params.id)
+        nomes[index].nome = req.body.nome
+        nomes[index].idade = req.body.idade
+
+        res.json(nomes)
+    })
+
     app.get("/times", (req, res) => {
         res.send(times)
     })
@@ -108,4 +117,13 @@ app.get("/teste", (req, res) => {
     app.post("/times", (req, res) => {
         times.push(req.body)
         res.status(201).send('Seus times foram cadastrados!')
+    })
+
+    app.put("/times/:id",(req,res) => {
+        let index = buscarIdTimes(req.params.id)
+        times[index].nome = req.body.nome
+        times[index].estado = req.body.estado
+        times[index].titulos = req.body.titulos
+
+        res.json(times)
     })
