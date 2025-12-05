@@ -3,12 +3,18 @@ body {
     padding: 30px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
 .titulo {
     color: #fff;
     max-width: 400px;
     margin: 0 auto;
     border-radius: 30px;
     text-align: center;
+    font-family: monospace;
 }
 
 .imagem {
