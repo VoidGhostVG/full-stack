@@ -21,12 +21,29 @@ app.get('/selecoes', (req, res) => {
 app.get('/selecoes/:id', (req, res) => {
     const sql = "select * from selecoes where id=?"
     const id = req.params.id
+
+    conexao.query(sql, id, (erro, result) => {
+        res.json(result[0])
+    })
 })
 
+// Adicionar seleção por id
 app.post('/selecoes', (req, res) => {
-    const sql = "select * from selecoes"
+    const sql = "select from selecoes"
+
     selecoes.push(req, body)
     res.status(201), send('Cadastrado com sucesso!')
+})
+
+// Deletando ids
+app.delete('/selecoes/:id', (req, res) => {
+    const sql = "delete from selecoes where id=?"
+    const id = req.params.id
+
+    conexao.query(sql, id, (erro, result) => {
+        res.send('Deletado com sucesso!')
+    })
+
 })
 
 export default app
