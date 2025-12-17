@@ -3,6 +3,7 @@ import conexao from "../infra/conexao.js"
 
 const app = express()
 
+app.use(express.json())
 
 app.get("/", (req, res) => {
     res.send("Olá Copa do Mundo!")
@@ -28,11 +29,13 @@ app.get('/selecoes/:id', (req, res) => {
 })
 
 // Adicionar seleção por id
-app.post('/selecoes', (req, res) => {
-    const sql = "select from selecoes"
+app.post('/selecoes/', (req, res) => {
+   const selecao = req.body
+   const sql = "INSERT INTO selecoes SET?;"
 
-    selecoes.push(req, body)
-    res.status(201), send('Cadastrado com sucesso!')
+   conexao.query(sql, selecao, () => {
+    res.json({ mensagem: "Cadastrado(s) com sucesso" })
+   })
 })
 
 // Deletando ids
@@ -44,6 +47,17 @@ app.delete('/selecoes/:id', (req, res) => {
         res.send('Deletado com sucesso!')
     })
 
+})
+
+// Editando ids
+app.put('/selecoes/:id', (req, res) => {
+    const id = req.params.id
+    const selecao = req.body
+    const sql = "update selecoes set ? where id=?"
+
+    conexao.query(sql, [selecao, id], () => {
+        res.json({ mensagem: 'Alterado com sucesso' })
+    })
 })
 
 export default app
